@@ -5,9 +5,7 @@ import os
 import json
 load_dotenv()
 import nltk 
-
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-
 import pandas as pd
 import numpy as np
 import recom as rec
