@@ -11,5 +11,4 @@ PyMySQL==0.9.3
 mysqlclient==1.4.6
 mysql-connector-python==8.0.18
 sklearn==0.0
-heroku create python-flask-mysql-csv-report
 
