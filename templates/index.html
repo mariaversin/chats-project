@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class='row'>
+  <div class="col-md-5">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {% endfor %} 
+    {% endif %}
+    {% endwith %}
+
+
+    <div class="card-card-body">
+      <h1> Create New User</h1>
+      <form action="add" method='POST'>
+        <div class= "form-group">
+          <input type='text' name='userName' placeholder="userName" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type='text' name='text' placeholder="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type='text' name='idUser' placeholder="idUser" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type='text' name='idChat' placeholder="idChat" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type='text' name='idMessage' placeholder="idMessage" class="form-control">
+        </div>
+        <div class="form-group">
+          <button type="Submit" class= "btn btn-primary btn-block">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-8">
+  <h1>Modify User</h1>
+  <table class='table table-striped table-bordered bg-white table-sm'> 
+    <thead>
+      <tr>
+        <td>userName</td>
+        <td>text</td>
+        <td>idMessage</td>
+        <td>Operations</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users%}
+        <tr>
+          <td>{{user[0]}}</td>
+          <td>{{user[1]}}</td>
+          <td>{{user[2]}}</td>
+          <td>
+            <a href="/edit/{{user[2]}}" class = "btn btn-secondary">Edit</a>
+            <a href="/delete/{{user[2]}}" class = "btn btn-danger
+            btn-delete">Delete</a>
+            
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+
+</div>
+
+{% endblock %}

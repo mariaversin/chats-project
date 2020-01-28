@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+<div class="col-md-5 offset-md-3">
+    <div class="card-card-body">
+        <form action="/update/{{user.2}}" method='POST'>
+            
+            <div class="form-group">
+                <input type='text' name='userName' placeholder="userName" value='{{user[0]}}' 
+                class="form-control">
+            </div>
+
+            <div class="form-group">
+                <input type='text' name='text' placeholder="text" value='{{user[1]}}'
+                class="form-control">
+            </div>
+
+            <div class="form-group">
+                <input type='text' name='idUser' placeholder="idUser" value='{{user[5]}}'
+                class="form-control">
+            </div>
+
+            <div class="form-group">
+                <input type='text' name='idChat' placeholder="idChat" value='{{user[4]}}'
+                class="form-control">
+            </div>
+
+            <div class="form-group">
+                <input type='text' name='idMessage' placeholder="idMessage" value='{{user[2]}}'
+                class="form-control">
+            </div>
+
+            <div class="form-group"> 
+                <button type="Submit" class="btn btn-success btn-block">
+                    Save
+                  </button>
+            </div>
+            
+          </form>
+    </div>
+    
+
+</div>
+
+  {% endblock %}
