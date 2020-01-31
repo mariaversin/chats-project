@@ -5,10 +5,11 @@ import os
 import json
 load_dotenv()
 import nltk 
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
+#from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import pandas as pd
 import numpy as np
 import recom as rec
+from textblob import TextBlob
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity as distance
 
@@ -95,13 +96,16 @@ def analyze(idChat):
 
 @app.route('/sentiment/<idUser>')
 def sentiment(idUser):
-    sid = SentimentIntensityAnalyzer()
+    #sid = SentimentIntensityAnalyzer()
     cur = mysql.connection.cursor()
     cur.execute('SELECT text FROM chats WHERE idUser = {}'.format(idUser))
     analisis = cur.fetchall()
     data = json.dumps(analisis)
     text = str(data.encode('utf-8'))
-    sent_user = sid.polarity_scores(text)
+    #sent_user = sid.polarity_scores(text)
+    blob = TextBlob(text)
+    for sentence in blob.sentences:
+        sent_user = sentence.sentiment
     return render_template('sentiment.html', sent = sent_user)
 
 @app.route('/friendship/<name>')
