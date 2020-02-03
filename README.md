@@ -1,6 +1,6 @@
 # Chat Analysis
 
-![image](https://github.com/mariaversin/chats-analysis/blob/master/api.png)
+![image](https://github.com/mariaversin/chats-project/blob/master/api.png)
 
 The goal of this project is to analyze the conversations of my team to ensure they are happy :smiley:.
 
