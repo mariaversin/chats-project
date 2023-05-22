@@ -3,7 +3,7 @@ Flask-MySQL==1.5.0
 Flask-MySQLdb==0.2.0
 numpy==1.17.4
 python-dotenv==0.10.3
-requests==2.21.0
+requests==2.31.0
 pandas==0.25.3
 jsonschema==2.6.0
 PyMySQL==0.9.3
